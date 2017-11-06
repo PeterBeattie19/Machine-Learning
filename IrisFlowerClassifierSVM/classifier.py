@@ -16,11 +16,12 @@ num = int(0.66 * len(features))
 X = features[:num] 
 Y = labels[:num] 
 
-clf = svm.LinearSVC()
+clf = svm.SVC(kernel = "linear")
 clf.fit(X,Y) 
 
 testFeatures = features[num:]
 testLabels = labels[num:] 
 
-pred = clf.predict(testFeatures) 
+acc = clf.score(testFeatures, testLabels) 
+print(acc)
 
