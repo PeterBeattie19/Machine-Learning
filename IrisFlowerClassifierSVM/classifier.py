@@ -1,27 +1,26 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 """
 Created on Sun Nov  5 12:24:43 2017
-
 @author: peter
 """
 
 from sklearn import datasets
 from sklearn import svm
+from sklearn.cross_validation import train_test_split 
+
 
 iris = datasets.load_iris()
-features = iris.data[:, :2]  # we only take the first two features.
-labels = iris.target
-
-num = int(0.66 * len(features)) 
-X = features[:num] 
-Y = labels[:num] 
-
+X = iris.data  # we only take the first two features.
+Y = iris.target
+ 
+features_train, features_test, labels_train, labels_test = train_test_split(X, Y, test_size = 0.5)
 clf = svm.SVC(kernel = "linear")
-clf.fit(X,Y) 
+clf.fit(features_train,labels_train) 
 
-testFeatures = features[num:]
-testLabels = labels[num:] 
 
-acc = clf.score(testFeatures, testLabels) 
-print(acc)
+accuracy = clf.score(features_test, labels_test)  
+print(accuracy)
 
+
+
+#Accuracy 0.96
