@@ -1,7 +1,14 @@
+''' Training a Neural Network to recognize handwritten digits,
+    using SKlearn's digits dataset.
+    The dataset consists of 1797 8 by 8 pixel images of handwritten digits.
+    The Neural Net has 64 input neurons 70, hidden layer has 70 neurons, output layer has 10 neurons.
+    The network ache=ieves an accuracy of 94% '''
+    
+
 from sklearn.neural_network import MLPClassifier
 from sklearn import datasets
 
-clf = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(30,40), random_state=1)
+clf = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(70), random_state=1)
 
 
 digits = datasets.load_digits()
@@ -26,5 +33,5 @@ for i in range(0,len(pred)):
 
 print numRight , " classifications correct " , "out of ", len(pred)
 
-# 92% accuracy score  
+# 94% accuracy score  
 
