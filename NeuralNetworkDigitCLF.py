@@ -2,7 +2,7 @@
     using SKlearn's digits dataset.
     The dataset consists of 1797 8 by 8 pixel images of handwritten digits.
     The Neural Net has 64 input neurons 70, hidden layer has 70 neurons, output layer has 10 neurons.
-    The network ache=ieves an accuracy of 94% '''
+    The network ache=ieves an accuracy of 94%, this is higher than using just 30 neurons in the hidden layer '''
     
 
 from sklearn.neural_network import MLPClassifier
