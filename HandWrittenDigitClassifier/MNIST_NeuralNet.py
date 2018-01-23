@@ -23,7 +23,7 @@ print("Number of samples: " + str(n_samples) + ", number of features: "+ str(n_f
 # a support vector classifier
 classifier = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(70), random_state=1)  #Create a Neural Network with 1 hidden layer consisting of 30 neurons 
 
-split_point = int(n_samples * 0.66)  #Take 2/3 of the training data and use it for training the rest wil be used for testing 
+split_point = int(n_samples * 0.9)  #Take 2/3 of the training data and use it for training the rest wil be used for testing 
 
 
 labels_learn = labels[:split_point] #Load in 2/3 of the labels 
