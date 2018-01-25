@@ -1,5 +1,8 @@
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+# 70'000 greyscale pictures of trouser, T-Shirts, etc. Each 24 by 24 pixels.
+# 1 layer of 100 neurons. 2 mins 30 sec to train. 
+
+import numpy as np 
+import pandas as pd 
 from sklearn.neural_network import MLPClassifier
 # Input data files are available in the "../input/" directory.
 # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
