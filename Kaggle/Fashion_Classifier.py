@@ -27,7 +27,7 @@ for i in temp:
     labels = np.append(labels, i)
 
 
-clf = MLPClassifier(solver = "lbfgs",hidden_layer_sizes = (100))
+clf = MLPClassifier(solver = "adam",hidden_layer_sizes = (100))
 
 clf.fit(features, labels) 
 
