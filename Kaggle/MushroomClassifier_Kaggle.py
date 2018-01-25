@@ -15,7 +15,7 @@ dataset = pd.read_csv("../input/mushrooms.csv")
 #print(dataset.iloc[0:10,0:1]) #rows then columns 
 
 clf = MLPClassifier(solver = "lbfgs",hidden_layer_sizes = (30,20)) #Standard neural net classifier with 2 hidden layers, each with 30 and 20 neurons in their layers respectivley
-
+#Use lbfgs solver for small datasets, less than a couple of thousands
 y_data = dataset[['class']] #All labels each label is p or e
 
 labels = np.array([])
