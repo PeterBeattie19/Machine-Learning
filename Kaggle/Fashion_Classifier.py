@@ -1,5 +1,6 @@
 # 70'000 greyscale pictures of trouser, T-Shirts, etc. Each 24 by 24 pixels.
 # 1 layer of 100 neurons. 2 mins 30 sec to train. 
+# MNIST Fashion
 
 import numpy as np 
 import pandas as pd 
@@ -14,7 +15,7 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 
 dataset = pd.read_csv("../input/fashion-mnist_train.csv") 
 
-Label_df = dataset[['label']]
+Label_df = dataset[['label']] #First column contains the labels
 
 features = dataset.as_matrix() #Convert data frame to numpy array
 features = np.delete(features, 0, 1) #remove first column, this column contains the labels 
@@ -27,7 +28,7 @@ for i in temp:
     labels = np.append(labels, i)
 
 
-clf = MLPClassifier(solver = "adam",hidden_layer_sizes = (100))
+clf = MLPClassifier(solver = "adam",hidden_layer_sizes = (100)) #adam solver beats Stochastic Gradient Descent 
 
 clf.fit(features, labels) 
 
