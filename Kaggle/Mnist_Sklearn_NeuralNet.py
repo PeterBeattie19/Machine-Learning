@@ -28,7 +28,7 @@ for i in temp:
 print("Finished")
 
 
-clf = MLPClassifier(solver = "adam", hidden_layer_sizes = (70))
+clf = MLPClassifier(solver = "sgd", hidden_layer_sizes = (70))
 
 print("Trainng classifier") 
 clf.fit(features, labels) 
@@ -47,22 +47,29 @@ print("predicting labels")
 results = clf.predict(features)
 print("Finished")
 
+#results = np.insert(results, 0, 0) 
+
 print(results.size)
 
 ImageIds = np.array([])
 
 for i in range(0,28000):
-    ImageIds = np.append(ImageIds, i)
+    ImageIds = np.append(ImageIds, int(i))
     
 
 print("creating Dictionary for csv file")
-d = {"ImageID":ImageIds, "Label":results} 
+#d = {"ImageID":ImageIds, "Label":results} 
 print("Finished")
+
+d = {"ImageId": list(range(1,len(results)+1)), "Label": results}
 
 print("Putting dictionary into Data Frame")
-df = pd.DataFrame(data=d)
+df = pd.DataFrame(data=d, dtype='int32')
 print("Finished")
 
+
+
+
 print("Saving to csv file")
-df.to_csv("sample_submission.csv", index=False, header=False)
+df.to_csv("sample_submission.csv", index=False, header=True)
 print("Finished")
